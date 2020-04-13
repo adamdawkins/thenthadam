@@ -1,0 +1,113 @@
+@import "swiss/normalize";
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  background: #fff;
+}
+
+.site-header {
+  height: 120px;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  position: relative;
+  margin-bottom: 40px;
+
+  grid-template-areas:
+  ". header header  header  header ."
+  ". header header  header  header ."
+  ". .....  content content content .";
+
+  &-header {
+    grid-area: header;
+  }
+  &-title {
+    font-weight: 700;
+    font-size: 100px;
+    line-height:95%;
+    /* or 95% */
+
+    letter-spacing: -0.02em;
+
+    margin-top: 0;
+
+    border-bottom: 12px solid black;
+    padding-bottom: .25em;
+  }
+
+  &-subtitle {
+    // font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.021em;
+    font-size: 36px;
+
+    &:before {
+      display: none !important;
+    }
+  }
+
+  &-content {
+    grid-area: content;
+
+    h2, h3 {
+      margin-top: 2em;
+      margin-bottom: 1em;
+        &:before {
+          content: "";
+          background: #EE3631;
+          border-radius: 50%;
+          height: 18px;
+          width: 18px;
+          display: inline-block;
+          margin-left: -2rem;
+          margin-right: 1rem;
+        }
+    }
+
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid black;
+      padding-left: 2em;
+      margin: 1.5em 0 1.5em -1em;
+    }
+
+    > p {
+      font-size: 18px;
+      letter-spacing: -0.0143007em;
+      line-height: 25px;
+      max-width: 635px;
+
+      &:first-of-type {
+
+        margin-top: 36px;
+        position: relative;
+
+        &:before {
+          position: absolute;
+          content: "";
+          width: 0px;
+          height: 0px;
+          border-top: 10px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 12px solid #EE3631;
+          left: -2em;
+        }
+        &::first-letter {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &-meta {
+    color: #ee3631;
+  }
+
+}
